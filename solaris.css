@@ -12,10 +12,15 @@ body {
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    padding-right: 2rem;
 }
 
 header {
-    margin-left: auto;
+    position: absolute;
+    margin-left: 0 auto;
+    align-self: flex-end;
+
 }
 
 header h1 {
@@ -23,6 +28,8 @@ header h1 {
     font-family: 'Secular One', sans-serif;
     font-size: 60px;
     letter-spacing: 5px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
 }
 
 header h3 {
@@ -32,10 +39,22 @@ header h3 {
     font-weight: lighter;
     letter-spacing: 10px;
     text-align: end;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
 }
 
-.planets-container {
-    margin-top: 5rem;
+#search-input {
+    border: 2px solid #428ED4;
+    border-radius: 5px;
+    height: 30px;
+    margin-left: 21.5rem;
+    background-color:#0c164d44;
+    padding: 10px;
+    color: white;
+}
+
+.planet-name {
+    color: white;
 }
 
 .planets {
@@ -46,18 +65,20 @@ header h3 {
     padding-right: 20px;
 
 }
-    
-
 
 .Solen-element {
-    width: 188px;
-    height: 740px;
-    border-radius: 0rem 10rem 10rem 0;
+    width: 1278px;
+    height: 1278px;
+    border-radius: 50%;
     background-color: #FFD029;
     box-shadow: #ffd12925 0px 0px 250px;
+    transition: all .3s ease-in-out;
+    margin-left: -72rem;
 }
 .Solen-element:hover {
-    transform: scale(1.1);
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: #e7d49060 0px 0px 500px;
 }
 
 .Merkurius-element {
@@ -171,4 +192,51 @@ header h3 {
     cursor: pointer;
     box-shadow: rgba(155, 202, 248, 0.525) 0px 0px 50px;
     transform: scale(1.1);
+}
+
+.planets-info__overlay {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #0C164D, #190B22);
+    z-index: 2;
+
+}
+
+.planet-info {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.planet-info__name-desc {
+    margin:0 auto;
+    padding-left: 20rem;
+    padding-right: 20rem;
+}
+
+.planet-info__name-desc h2 {
+    color: white;
+    font-family: 'Secular One', sans-serif;
+    font-size: 60px;
+    letter-spacing: 5px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+}
+
+.planet-info__name-desc h3 {
+    color: #FFD029;
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: lighter;
+    letter-spacing: 10px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
 }
