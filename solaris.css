@@ -217,12 +217,12 @@ header h3 {
 }
 
 .planet-info__name-desc {
-    margin:0 auto;
+    margin: 5rem 10rem 0 10rem;
     padding-left: 20rem;
     padding-right: 20rem;
 }
 
-.planet-info__name-desc h2 {
+.chosen-planet__name {
     color: white;
     font-family: 'Secular One', sans-serif;
     font-size: 60px;
@@ -231,7 +231,7 @@ header h3 {
     margin-block-end: 10px;
 }
 
-.planet-info__name-desc h3 {
+.chosen-planet__latin {
     color: #FFD029;
     font-family: 'Lora', serif;
     font-size: 24px;
@@ -239,4 +239,52 @@ header h3 {
     letter-spacing: 10px;
     margin-block-start: 10px;
     margin-block-end: 10px;
+}
+
+.chosen-planet__desc {
+    font-family: 'Secular One', sans-serif;
+    line-height: 24px;
+
+}
+
+.break-line {
+    margin: 2rem 0 2rem 0;
+    height: 1px;
+    width: 590px;
+    background-color: rgba(255, 255, 255, 0.417);
+}
+
+.planet-info__temp-dist {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    font-family: 'Secular One', sans-serif;
+    font-size: larger;
+    letter-spacing: 5px;
+
+}
+
+.planet-info__temp-dist h4 {
+    
+}
+
+.planet-info__temp-dist p {
+    font-weight: lighter;
+}
+
+.planet-info__moons {
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 5px;
+}
+
+
+#previous_btn, #next_btn {
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 2rem;
+    border-radius: 4px;
+    color: white;
+    font-size: larger;
+    padding: 0 1rem 0 1rem;
+
 }

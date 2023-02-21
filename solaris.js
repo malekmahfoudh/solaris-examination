@@ -7,7 +7,7 @@ async function getSolarSystem() {
     let fetchedPlanets = await resp.json();
     planets=fetchedPlanets;
     renderPlanetsToUi(fetchedPlanets)
-    console.log(planets);
+
 }
 getSolarSystem();
 
@@ -31,7 +31,6 @@ function renderPlanetsToUi(planets) {
 
 }
 
-
 let overlay = document.querySelector(".planets-info__overlay")
 overlay.addEventListener('click', () => {
     overlayOff()
@@ -48,15 +47,23 @@ function overlayOn() {
             <p class="chosen-planet__desc">${chosenPlanet.desc}</p>
         </section>
         <div class="break-line"></div>
-        <section>
-            <h4>OMKRETS<br><p>${chosenPlanet.circumference}</p></h4>
-            <h4>KM FRÅN SOLEN<br><p>${chosenPlanet.distance}</p></h4>
-            <h4>MAX TEMPERATUR<br><p>${chosenPlanet.temp.day}</p></h4>
-            <h4>MIN TEMPERATUR<br><p>${chosenPlanet.temp.night}</p></h4>
+        <section class="planet-info__temp-dist">
+            <h4>OMKRETS<br><p>${chosenPlanet.circumference} km</p></h4>
+            <h4>KM FRÅN SOLEN<br><p>${chosenPlanet.distance} km</p></h4>
+            <h4>MAX TEMPERATUR<br><p>${chosenPlanet.temp.day} °C</p></h4>
+            <h4>MIN TEMPERATUR<br><p>${chosenPlanet.temp.night} °C</p></h4>
         </section>
         <div class="break-line"></div>
+        <section class="planet-info__moons">
+            <h4>MÅNAR<br><p>${chosenPlanet.moons}</p></h4>
+        </section>
+        <section class="change-planet__btn">
+            <button id="previous_btn">&#8592</button>
+            <button id="next_btn">&#8594</button>
+        </section>
     </article>`;
     document.querySelector(".planets-info__overlay").innerHTML = overlayContent;
+
 }
 
 function overlayOff() {
@@ -82,7 +89,24 @@ searchInput.addEventListener("keyup", function(event) {
 
 
 
+
 // includes i sök
 // if-sats för sök
 // sökfunktionen 
 //kombinera overlay med lightbox effekt
+
+// ` 
+//             let moonArrayToString = "";
+//             if (chosenPlanet.moons.length > 0) {
+//                 moonArrayToString = chosenPlanet.moons.map((moon, index) => {
+//                     if (index === chosenPlanet.moons.length - 1) {
+//                         return and `${moon}.`;
+//                     } else {
+//                         return `${moon},`;
+//                     }
+//                 })
+//                     .join("");
+//             } else {
+//                 moonArrayToString = `${chosenPlanet.name} har ingen måne`
+//             } 
+//             console.log(moonArrayToString) `
