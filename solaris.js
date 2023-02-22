@@ -31,7 +31,7 @@ function renderPlanetsToUi(planets) {
 
 }
 
-let overlay = document.querySelector(".planets-info__overlay")
+let overlay = document.querySelector(".close-overlay")
 overlay.addEventListener('click', () => {
     overlayOff()
 })
@@ -55,14 +55,13 @@ function overlayOn() {
         </section>
         <div class="break-line"></div>
         <section class="planet-info__moons">
-            <h4>MÅNAR<br><p>${chosenPlanet.moons}</p></h4>
-        </section>
-        <section class="change-planet__btn">
-            <button id="previous_btn">&#8592</button>
-            <button id="next_btn">&#8594</button>
+            <h4>MÅNAR<br>
+                <p>${chosenPlanet.moons.map((moon)=> `${moon}`).join(" | ")}</p>
+                <input class="expand-moons__btn" type="checkbox"> 
+            </h4>
         </section>
     </article>`;
-    document.querySelector(".planets-info__overlay").innerHTML = overlayContent;
+    document.querySelector(".overlay-info").innerHTML = overlayContent;
 
 }
 
@@ -90,23 +89,10 @@ searchInput.addEventListener("keyup", function(event) {
 
 
 
-// includes i sök
-// if-sats för sök
-// sökfunktionen 
-//kombinera overlay med lightbox effekt
 
-// ` 
-//             let moonArrayToString = "";
-//             if (chosenPlanet.moons.length > 0) {
-//                 moonArrayToString = chosenPlanet.moons.map((moon, index) => {
-//                     if (index === chosenPlanet.moons.length - 1) {
-//                         return and `${moon}.`;
-//                     } else {
-//                         return `${moon},`;
-//                     }
-//                 })
-//                     .join("");
-//             } else {
-//                 moonArrayToString = `${chosenPlanet.name} har ingen måne`
-//             } 
-//             console.log(moonArrayToString) `
+// if-sats för sök
+// få in rätt bild på planet i overlay
+// få in plentnamn på fram och bak knapparna så man vet vilken planet som kommer före och näst 
+//kombinera overlay med lightbox effekt
+// kunna bläddra mellan planeterna i overlay
+
