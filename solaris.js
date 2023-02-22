@@ -31,11 +31,6 @@ function renderPlanetsToUi(planets) {
 
 }
 
-let overlay = document.querySelector(".close-overlay")
-overlay.addEventListener('click', () => {
-    overlayOff()
-})
-
 function overlayOn() {
     document.querySelector(".planets-info__overlay").style.display = "block";
     console.log('chosen planet', chosenPlanet)
@@ -43,8 +38,10 @@ function overlayOn() {
     <article class="planet-info">
         <section class="planet-info__name-desc">
             <h2 class="chosen-planet__name">${chosenPlanet.name}</h2>
+
             <h3 class="chosen-planet__latin">${chosenPlanet.latinName}</h3>
             <p class="chosen-planet__desc">${chosenPlanet.desc}</p>
+            <input class="expand-desc__btn" type="checkbox">
         </section>
         <div class="break-line"></div>
         <section class="planet-info__temp-dist">
@@ -62,13 +59,23 @@ function overlayOn() {
         </section>
     </article>`;
     document.querySelector(".overlay-info").innerHTML = overlayContent;
+    
 
 }
 
+
+let overlay = document.querySelector(".close-overlay")
+overlay.addEventListener('click', () => {
+    overlayOff()
+})
 function overlayOff() {
     document.querySelector(".planets-info__overlay").style.display = "none";
 }
 
+
+
+let errorMessage = document.querySelector('#error-message');
+errorMessage.innerHTML = "";
 searchInput.addEventListener("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode === 13) {
@@ -79,7 +86,7 @@ searchInput.addEventListener("keyup", function(event) {
             chosenPlanet = planets[planetIndex]
             overlayOn()
         } else {
-            alert('Not a planet')
+            errorMessage.innerHTML = 'Vänligen sök på en planet' +`<br>` + 'i vårt solsystem'
         }
     }
 });
@@ -87,12 +94,25 @@ searchInput.addEventListener("keyup", function(event) {
 
 
 
+// let i = 0;
+// function nextPlanet() {
+//     i = i++;
+//     i = i% chosenPlanet.length;
+//     return chosenPlanet[i];
+// }
+
+// let nextPlanet = document.querySelector('#next-btn')
+// let nextPlanetBtn = nextPlanet.querySelector('#next-btn')[0];
+
+// nextPlanetBtn.addEventListener('click', function(e) {
+//     document.querySelector('#next-btn')[0].value = nextPlanet();
+//     e.preventDefault();
+// })
 
 
 
-// if-sats för sök
+// få bort error meddelande 
 // få in rätt bild på planet i overlay
 // få in plentnamn på fram och bak knapparna så man vet vilken planet som kommer före och näst 
-//kombinera overlay med lightbox effekt
 // kunna bläddra mellan planeterna i overlay
 
