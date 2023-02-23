@@ -1,12 +1,15 @@
 let planets = [];
 let planetsContainerEl = document.querySelector('.planets-container');
-const searchInput = document.querySelector('#search-input')
 let currenPlanetIndex;
+let overlay = document.querySelector(".close-overlay")
+let nextPlanet = document.querySelector('#next_btn')
+const errorMessage = document.querySelector('#error-message');
+const searchInput = document.querySelector('#search-input')
 
 async function getSolarSystem() {
     try {
         let resp = await fetch('https://majazocom.github.io/Data/solaris.json');
-        let fetchedPlanets = await resp.json();
+        fetchedPlanets = await resp.json();
         planets = fetchedPlanets;
         renderPlanetsToUi(fetchedPlanets)
     }
@@ -62,19 +65,12 @@ function overlayOn() {
 
 }
 
-
-let nextPlanet = document.querySelector('#next_btn')
-
 nextPlanet.addEventListener('click', () => {
     console.log('click')
     overlayOn(planets[currenPlanetIndex + 1]);
 
 })
 
-
-
-
-let overlay = document.querySelector(".close-overlay")
 overlay.addEventListener('click', () => {
     overlayOff()
 })
@@ -82,9 +78,6 @@ function overlayOff() {
     document.querySelector(".planets-info__overlay").style.display = "none";
 }
 
-
-
-let errorMessage = document.querySelector('#error-message');
 searchInput.addEventListener("keyup", function (event) {
     event.preventDefault();
     errorMessage.innerHTML = "";
@@ -102,9 +95,6 @@ searchInput.addEventListener("keyup", function (event) {
 
 
 
-// få in rätt bild på planet i overlay
-// få in planetnamn på fram och bak knapparna så man vet vilken planet som kommer före och näst 
+
 // kunna bläddra mellan planeterna i overlay
 
-// ::before content attr(url) <-- pysa in en kul bild
-// position relative på planeten
