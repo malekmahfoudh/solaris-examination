@@ -3,8 +3,11 @@ let planetsContainerEl = document.querySelector('.planets-container');
 let currentPlanetIndex;
 let overlay = document.querySelector(".close-overlay")
 let nextPlanet = document.querySelector('#next_btn')
+let prevPlanet = document.querySelector('#previous_btn')
 const errorMessage = document.querySelector('#error-message');
 const searchInput = document.querySelector('#search-input')
+
+//  -------------------- FETCH PLANETS FROM API FUNCTION --------------------  
 
 async function getSolarSystem() {
     try {
@@ -13,11 +16,13 @@ async function getSolarSystem() {
         planets = fetchedPlanets;
         renderPlanetsToUi(fetchedPlanets)
     }
-    catch(error) {
+    catch (error) {
         console.log(error);
     }
 }
 getSolarSystem();
+
+//  -------------------- RENDERING PANETS TO UI FUNCTION --------------------  
 
 function renderPlanetsToUi(planets) {
     let planetsArticle = document.createElement('article');
@@ -32,9 +37,11 @@ function renderPlanetsToUi(planets) {
             overlayOn(chosenPlanet)
 
         })
-        
+
     });
 }
+
+//  -------------------- OVERLAY FUNCTION --------------------  
 
 function overlayOn(chosenPlanet) {
     document.querySelector(".planets-info__overlay").style.display = "block";
@@ -62,17 +69,43 @@ function overlayOn(chosenPlanet) {
             </h4>
         </section>
     </article>`;
+
     document.querySelector(".overlay-info").innerHTML = overlayContent;
+
+    //  -------------------- PAGINATION FUNCTION --------------------  
+
     nextPlanet.addEventListener('click', () => {
-        currentPlanetIndex = currentPlanetIndex+1
+        let id = chosenPlanet.id;
+        id = id + 1;
+        planets.find(planet => {
+            if (planet.id === id) {
+                chosenPlanet = planet;
+                console.log(id)
+            }
+        })
         overlayOn(chosenPlanet);
         console.log(chosenPlanet)
-    
+
     })
-    
-    
+
+    prevPlanet.addEventListener('click', () => {
+        let id = chosenPlanet.id;
+        id = id - 1;
+        planets.find(planet => {
+            if (planet.id === id) {
+                chosenPlanet = planet;
+                console.log(id)
+            }
+        })
+        overlayOn(chosenPlanet);
+        console.log(chosenPlanet)
+
+    })
+
+
 }
 
+//  -------------------- CLOSING FUNCTION --------------------  
 
 overlay.addEventListener('click', () => {
     overlayOff()
@@ -80,6 +113,8 @@ overlay.addEventListener('click', () => {
 function overlayOff() {
     document.querySelector(".planets-info__overlay").style.display = "none";
 }
+
+//  -------------------- SEARCH PLANETS FUNCTION --------------------  
 
 searchInput.addEventListener("keyup", function (event) {
     event.preventDefault();
@@ -95,9 +130,3 @@ searchInput.addEventListener("keyup", function (event) {
         }
     }
 });
-
-
-
-
-// kunna bläddra mellan planeterna i overlay
-

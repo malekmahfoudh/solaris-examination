@@ -5,12 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
+/* -------------------- GENERAL STYLING --------------------  */
 
 body {
     height: 100vh;
     background-image: url(/img/MacBook\ Pro\ -\ 2.png);
     background-repeat: no-repeat;
-    background-size: cover ;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -21,7 +22,6 @@ header {
     position: absolute;
     margin-left: 0 auto;
     align-self: flex-end;
-
 }
 
 header h1 {
@@ -49,7 +49,7 @@ header h3 {
     border-radius: 5px;
     height: 30px;
     margin-left: 21.5rem;
-    background-color:#0c164d44;
+    background-color: #0c164d44;
     padding: 10px;
     color: white;
 }
@@ -61,18 +61,16 @@ header h3 {
     margin-block-start: 1rem;
     margin-block-end: 0;
 }
-.planet-name {
-    color: white;
-}
 
 .planets {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items:center;
+    align-items: center;
     padding-right: 20px;
-
 }
+
+/* -------------------- PLANETS STYLING --------------------  */
 
 .Solen-element {
     width: 1278px;
@@ -84,6 +82,7 @@ header h3 {
     transition: all .3s ease-in-out;
     margin-left: -72rem;
 }
+
 .Solen-element:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -98,8 +97,8 @@ header h3 {
     background-color: #888888;
     box-shadow: inset -4px 0px 1px #7c7c7c;
     transition: all .3s ease-in-out;
-    
 }
+
 .Merkurius-element:hover {
     cursor: pointer;
     box-shadow: rgba(155, 202, 248, 0.525) 0px 0px 10px, inset -4px 0px 1px #7c7c7c;
@@ -115,6 +114,7 @@ header h3 {
     box-shadow: inset -6px 0px 1px #c6aeae;
     transition: all .3s ease-in-out;
 }
+
 .Venus-element:hover {
     cursor: pointer;
     box-shadow: rgba(155, 202, 248, 0.525) 0px 0px 30px, inset -6px 0px 1px #c6aeae;
@@ -130,6 +130,7 @@ header h3 {
     box-shadow: inset -8px 0px 1px #3a7fc0;
     transition: all .3s ease-in-out;
 }
+
 .Jorden-element:hover {
     cursor: pointer;
     background-image: url(/img/Frame\ 8.png);
@@ -149,6 +150,7 @@ header h3 {
     box-shadow: inset -5px 0px 1px #db5555;
     transition: all .3s ease-in-out;
 }
+
 .Mars-element:hover {
     cursor: pointer;
     box-shadow: rgba(155, 202, 248, 0.525) 0px 0px 10px, inset -5px 0px 1px #db5555;
@@ -175,7 +177,6 @@ header h3 {
     transform: scale(1.5);
 }
 
-
 .Saturnus-element {
     width: 140px;
     height: 140px;
@@ -192,7 +193,6 @@ header h3 {
     transform: scale(1.5);
 }
 
-
 .Uranus-element {
     width: 66px;
     height: 66px;
@@ -202,6 +202,7 @@ header h3 {
     box-shadow: inset -18px 0px 1px #bfcae7;
     transition: all .3s ease-in-out;
 }
+
 .Uranus-element:hover {
     cursor: pointer;
     box-shadow: rgba(155, 202, 248, 0.525) 0px 0px 50px, inset -18px 0px 1px #bfcae7;
@@ -217,11 +218,14 @@ header h3 {
     box-shadow: inset -19px 0px 1px #6f8499;
     transition: all .3s ease-in-out;
 }
+
 .Neptunus-element:hover {
     cursor: pointer;
     box-shadow: rgba(155, 202, 248, 0.525) 0px 0px 50px, inset -19px 0px 1px #6f8499;
     transform: scale(1.7);
 }
+
+/* -------------------- OVERLAY STYLING --------------------  */
 
 .close-overlay {
     font-family: 'Secular One', sans-serif;
@@ -235,7 +239,6 @@ header h3 {
     margin-bottom: 4em;
     margin-top: 1rem;
     transition: all .3s ease-in-out;
-
 }
 
 .close-overlay:hover {
@@ -260,8 +263,7 @@ header h3 {
     background-size: cover;
     z-index: 2;
     overflow-y: scroll;
-    animation: slide .5s 
-
+    animation: slide .5s
 }
 
 .planet-info {
@@ -277,12 +279,10 @@ header h3 {
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: auto;
     grid-template-areas:
-    ". . name . . ."
-    ". . latin . . ."
-    ". . desc desc . ."
-    ". . desc desc btn ." ;
-
-
+        ". . name . . ."
+        ". . latin . . ."
+        ". . desc desc . ."
+        ". . desc desc btn .";
 }
 
 .chosen-planet__name {
@@ -306,11 +306,6 @@ header h3 {
     grid-area: latin;
 }
 
-
-
-
-
-
 .chosen-planet__desc {
     font-family: 'Secular One', sans-serif;
     line-height: 24px;
@@ -320,7 +315,6 @@ header h3 {
 .chosen-planet__desc {
     --max-lines: 4;
     --line-height: 1.4;
-
     max-height: calc(var(--max-lines) * 1em * var(--line-height));
     overflow: hidden;
     position: relative;
@@ -333,7 +327,7 @@ header h3 {
     width: 100%;
     bottom: 0;
     pointer-events: none;
-    background: linear-gradient( to bottom, transparent, linear-gradient(to right, #0C164D, #190B22))
+    background: linear-gradient(to bottom, transparent, linear-gradient(to right, #0C164D, #190B22))
 }
 
 .expand-desc__btn {
@@ -369,16 +363,7 @@ header h3 {
 
 .chosen-planet__desc:has(+ .expand-desc__btn:checked) {
     max-height: none;
- } 
-
-
-
-
-
-
-
-
-
+}
 
 .break-line {
     margin: 2rem 0 2rem 0;
@@ -394,11 +379,6 @@ header h3 {
     font-family: 'Secular One', sans-serif;
     font-size: larger;
     letter-spacing: 5px;
-
-}
-
-.planet-info__temp-dist h4 {
-    
 }
 
 .planet-info__temp-dist p {
@@ -409,14 +389,11 @@ header h3 {
     font-family: 'Secular One', sans-serif;
     letter-spacing: 5px;
     max-width: 30em;
-
-
 }
 
 .planet-info__moons p {
     --max-lines: 4;
     --line-height: 1.4;
-
     max-height: calc(var(--max-lines) * 1em * var(--line-height));
     overflow: hidden;
     position: relative;
@@ -429,7 +406,7 @@ header h3 {
     width: 100%;
     bottom: 0;
     pointer-events: none;
-    background: linear-gradient( to bottom, transparent, linear-gradient(to right, #0C164D, #190B22))
+    background: linear-gradient(to bottom, transparent, linear-gradient(to right, #0C164D, #190B22))
 }
 
 .expand-moons__btn {
@@ -460,7 +437,7 @@ header h3 {
 
 .planet-info__moons p:has(+ .expand-moons__btn:checked) {
     max-height: none;
- }
+}
 
 .change-planet__btn {
     display: grid;
@@ -468,7 +445,7 @@ header h3 {
     grid-template-columns: repeat(8, 1fr);
     grid-auto-rows: 100px;
     grid-template-areas:
-    ". . . p n . . ." ;
+        ". . . p n . . .";
     align-items: center;
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -482,7 +459,8 @@ header h3 {
     grid-area: n;
 }
 
-#previous_btn, #next_btn {
+#previous_btn,
+#next_btn {
     background-color: transparent;
     border: 1px solid white;
     border-radius: 4px;
@@ -499,6 +477,7 @@ header h3 {
     transform: scale(1.1);
     cursor: pointer;
 }
+
 #next_btn:hover {
     background-color: white;
     color: #0C164D;
@@ -514,14 +493,15 @@ header h3 {
     position: fixed;
     z-index: 0;
     animation: 10s infinite alien;
-    
 }
+
+/* -------------------- KEYFRAMES --------------------  */
 
 @keyframes alien {
     0% {
-      transform: translate(110vw, 20vh)
+        transform: translate(110vw, 20vh)
     }
-  
+
     50% {
         transform: translate(50vw, 44vh);
     }
@@ -529,15 +509,14 @@ header h3 {
     100% {
         transform: translate(-110vw, 50vh)
     }
-  }
+}
 
-  @keyframes slide {
+@keyframes slide {
     0% {
-      transform: translateX(100%);
+        transform: translateX(100%);
     }
+
     100% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
-  }
-
-
+}
