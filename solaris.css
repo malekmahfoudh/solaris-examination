@@ -80,14 +80,14 @@ header h3 {
     border: 8px solid rgba(255, 255, 255, 0.375);
     border-radius: 50%;
     background-color: #FFD029;
-    box-shadow: #ffd12925 0px 0px 250px;
+    box-shadow: #ffd129ab 0px 0px 250px;
     transition: all .3s ease-in-out;
     margin-left: -72rem;
 }
 .Solen-element:hover {
     cursor: pointer;
     transform: scale(1.1);
-    box-shadow: #e7d49060 0px 0px 500px;
+    box-shadow: #ffd129ab 0px 0px 500px;
 }
 
 .Merkurius-element {
@@ -185,6 +185,7 @@ header h3 {
     box-shadow: inset -28px 0px 1px #bca16c;
     transition: all .3s ease-in-out;
 }
+
 .Saturnus-element:hover {
     cursor: pointer;
     box-shadow: rgba(155, 202, 248, 0.525) 0px 0px 50px, inset -28px 0px 1px #bca16c;

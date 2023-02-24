@@ -1,6 +1,6 @@
 let planets = [];
 let planetsContainerEl = document.querySelector('.planets-container');
-let currenPlanetIndex;
+let currentPlanetIndex;
 let overlay = document.querySelector(".close-overlay")
 let nextPlanet = document.querySelector('#next_btn')
 const errorMessage = document.querySelector('#error-message');
@@ -29,14 +29,16 @@ function renderPlanetsToUi(planets) {
         planetsArticle.appendChild(planetEl)
         planetEl.addEventListener('click', () => {
             chosenPlanet = planet;
-            overlayOn()
+            overlayOn(chosenPlanet)
+
         })
+        
     });
 }
 
-function overlayOn() {
+function overlayOn(chosenPlanet) {
     document.querySelector(".planets-info__overlay").style.display = "block";
-    currenPlanetIndex = planets.findIndex(p => p.name === chosenPlanet.name)
+    console.log(chosenPlanet.name);
     let overlayContent = `
     <article class="planet-info">
         <section class="planet-info__name-desc">
@@ -61,15 +63,16 @@ function overlayOn() {
         </section>
     </article>`;
     document.querySelector(".overlay-info").innerHTML = overlayContent;
-
-
+    nextPlanet.addEventListener('click', () => {
+        currentPlanetIndex = currentPlanetIndex+1
+        overlayOn(chosenPlanet);
+        console.log(chosenPlanet)
+    
+    })
+    
+    
 }
 
-nextPlanet.addEventListener('click', () => {
-    console.log('click')
-    overlayOn(planets[currenPlanetIndex + 1]);
-
-})
 
 overlay.addEventListener('click', () => {
     overlayOff()
